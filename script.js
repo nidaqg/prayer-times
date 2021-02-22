@@ -71,7 +71,7 @@ function getTimes (cityName, countryName) {
 //create complete url from user input
 var theCity = "city=" + cityName;
 var theCountry = "&country=" + countryName;
-var baseURL = "http://api.aladhan.com/v1/timingsByCity?";
+var baseURL = "https://api.aladhan.com/v1/timingsByCity?";
 var completeURL = baseURL + theCity + theCountry;
   
 console.log(theCity);
