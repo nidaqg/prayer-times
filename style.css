@@ -1,0 +1,21 @@
+.myBtn {
+    background-color: black;
+    color: whitesmoke;
+}
+
+.myBtn:hover {
+    background-color: teal;
+    color: white;
+}
+
+.myColors {
+    background-color: black;
+}
+
+.hidden {
+    display: none;
+}
+
+.columnColor {
+    background-color: rgb(20, 51, 20);
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Namaz Times</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--link bootstrap, local css-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+      <!--Navigation bar-->
+      <img src="./images/header-image.png" alt="header-image" class="img-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark myColors">
+        <section class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <section class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <section class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" href="#">monthly calender</a>
+            </section>
+          </section>
+        </section>
+      </nav>
+
+        <header>
+
+        </header>
+
+        <main class="container-fluid">
+          <section class="row">
+            <!--sidebar with search fields-->
+            <section class="col-md-4">
+              <section class="card m-4">
+                <section class="card-body text-center">
+                  <label for="usercity" class="form-label">Enter City name</label>
+                  <input type="text" class="form-control" id="cityInput" aria-describedby="cityInput">
+
+                  <label for="usercountry" class="form-label mt-4">Enter Country name</label>
+                  <input type="text" class="form-control" id="countryInput" aria-describedby="countryInput">
+                  <button type="submit" id="citySubmit" class="btn myBtn mt-4">Submit</button>
+                  <button type="submit" id="resetBtn" class="btn myBtn mt-4">Reset</button>
+
+                </section>
+
+              </section>
+            </section>
+            <!--main section with times displayed-->
+            <section class="col-md-8" id="mainDisplay">
+              <section class="card m-4 text-center h3 hidden"id="errorMessage"></section>
+
+             <section class="hidden" id="hiddensection">
+               <!--section to hold dynamically generated times-->
+                  <section class="card m-4 text-center" id="timesDisplay">
+                    <h2 class="mt-3">Prayer Timings</h4>
+                 </section>
+               </section>
+            </section>
+          </section>
+
+        </main>
+
+
+    <!--bootstrap js + local js files-->    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    </body>
+</html>
