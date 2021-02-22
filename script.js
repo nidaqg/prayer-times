@@ -39,11 +39,12 @@ submitButton.addEventListener("click", function(event){
   var countryName = countryInput.value;
 
 
-  if (cityName === "" || countryName === "" || Number.isInteger(cityName) || Number.isInteger(countryName)) {
+  if (cityName === "" || countryName === "") {
      errorMessage.classList.remove("hidden");
      errorMessage.textContent = "Please enter a valid city and country name!";
      
   } else {
+
     errorMessage.textContent= "";
     errorMessage.classList.add("hidden");
     hiddenSection.classList.remove("hidden");
