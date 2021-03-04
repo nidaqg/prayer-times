@@ -16,6 +16,9 @@
     display: none;
 }
 
-.columnColor {
-    background-color: rgb(20, 51, 20);
+.myHeading {
+    background-color: rgb(21, 58, 21);
+    color: white;
+    font-family: 'RocknRoll One', sans-serif;
 }
+

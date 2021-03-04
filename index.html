@@ -8,6 +8,9 @@
         <!--link bootstrap, local css-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css"/>
+        <!--links to googlefont-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
     </head>
     <body>
       <!--Navigation bar-->
@@ -35,27 +38,41 @@
             <!--sidebar with search fields-->
             <section class="col-md-4">
               <section class="card m-4">
+                <section class="card-header text-center">
+                  <h5>Please enter the city and country name to display prayer times</h5>
+                </section>
                 <section class="card-body text-center">
-                  <label for="usercity" class="form-label">Enter City name</label>
+                  <label for="usercity" class="form-label">City name</label>
                   <input type="text" class="form-control" id="cityInput" aria-describedby="cityInput">
 
-                  <label for="usercountry" class="form-label mt-4">Enter Country name</label>
+                  <label for="usercountry" class="form-label mt-4">Country name</label>
                   <input type="text" class="form-control" id="countryInput" aria-describedby="countryInput">
-                  <button type="submit" id="citySubmit" class="btn myBtn mt-4">Submit</button>
-                  <button type="submit" id="resetBtn" class="btn myBtn mt-4">Reset</button>
-
+                  <button type="submit" id="citySubmit" class="btn myBtn mt-4 mb-3">Submit</button>
+                  <button type="submit" id="resetBtn" class="btn myBtn mt-4 mb-3">Reset</button>
                 </section>
-
+                <section class="card-footer text-muted text-center">
+                  This page is powered by the aladhan.com API
+                </section>
               </section>
             </section>
             <!--main section with times displayed-->
-            <section class="col-md-8" id="mainDisplay">
+            <section class="col-md-8 justify-content-center" id="mainDisplay">
+              <!--section to hold error message if any-->
               <section class="card m-4 text-center h3 hidden"id="errorMessage"></section>
-
+              <!--section to hold card with prayer times-->
              <section class="hidden" id="hiddensection">
-               <!--section to hold dynamically generated times-->
-                  <section class="card m-4 text-center" id="timesDisplay">
-                    <h2 class="mt-3">Prayer Timings</h4>
+               <!--card to hold dynamically generated times-->
+                  <!--<section class="card m-4 text-center">-->
+                    <h2 class="mt-3 text-center">Prayer Timings</h4>
+                    <section id="theDate"></section>
+                    <section class="row row-cols-1 row-cols-md-3 g-4 mt-3" id="timesDisplay">
+                      <section class="col" id="fajr"></section>
+                      <section class="col" id="dhuhr"></section>
+                      <section class="col" id="asr"></section>
+                      <section class="col" id="maghrib"></section>
+                      <section class="col" id="isha"></section>
+
+                   <!-- </section>-->
                  </section>
                </section>
             </section>

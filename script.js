@@ -5,31 +5,75 @@ var mainDisplay = document.querySelector("#mainDisplay");
 var hiddenSection = document.querySelector("#hiddensection");
 var errorMessage = document.querySelector("#errorMessage");
 var resetBtn = document.querySelector("#resetBtn");
+var theDate = document.querySelector("#theDate");
+var fcol = document.querySelector("#fajr");
+var dcol = document.querySelector("#dhuhr");
+var acol = document.querySelector("#asr");
+var mcol = document.querySelector("#maghrib");
+var icol = document.querySelector("#isha");
+
 
 var submitButton = document.querySelector("#citySubmit");
 
 //create the cards to hold the prayer times
 var dayDate = document.createElement("h4");
+
 var fajrTime = document.createElement("div");
 var dhuhrTime = document.createElement("div");
 var asrTime = document.createElement("div");
 var maghribTime = document.createElement("div");
 var ishaTime = document.createElement("div");
 
+var fheading = document.createElement("div");
+var dheading = document.createElement("div");
+var aheading = document.createElement("div");
+var mheading = document.createElement("div");
+var iheading = document.createElement("div");
+
+var fcard = document.createElement("div");
+var dcard = document.createElement("div");
+var acard = document.createElement("div");
+var mcard = document.createElement("div");
+var icard = document.createElement("div");
+
+fheading.classList.add("card-header", "text-center", "p-3", "myHeading");
+dheading.classList.add("card-header", "text-center", "p-3", "myHeading");
+aheading.classList.add("card-header", "text-center", "p-3", "myHeading");
+mheading.classList.add("card-header", "text-center", "p-3", "myHeading");
+iheading.classList.add("card-header", "text-center", "p-3", "myHeading");
+
 dayDate.classList.add("text-center", "fst-italic");
-fajrTime.classList.add("card", "mt-3", "mx-4", "text-center", "p-3");
-dhuhrTime.classList.add("card", "mt-3", "mx-4", "text-center", "p-3");
-asrTime.classList.add("card", "mt-3", "mx-4", "text-center", "p-3");
-maghribTime.classList.add("card", "mt-3", "mx-4", "text-center", "p-3");
-ishaTime.classList.add("card", "mt-3", "mx-4", "mb-3", "text-center", "p-3");
+fajrTime.classList.add("card-body");
+dhuhrTime.classList.add("card-body");
+asrTime.classList.add("card-body");
+maghribTime.classList.add("card-body");
+ishaTime.classList.add("card-body");
+
+fcard.classList.add("card", "text-center", "h-100");
+dcard.classList.add("card", "text-center", "h-100");
+acard.classList.add("card", "text-center", "h-100");
+mcard.classList.add("card", "text-center", "h-100");
+icard.classList.add("card", "text-center", "h-100");
+
+fcard.appendChild(fheading);
+dcard.appendChild(dheading);
+acard.appendChild(aheading);
+mcard.appendChild(mheading);
+icard.appendChild(iheading);
+
+fcard.appendChild(fajrTime);
+dcard.appendChild(dhuhrTime);
+acard.appendChild(asrTime);
+mcard.appendChild(maghribTime);
+icard.appendChild(ishaTime);
 
 
-theDisplay.appendChild(dayDate);
-theDisplay.appendChild(fajrTime);
-theDisplay.appendChild(dhuhrTime);
-theDisplay.appendChild(asrTime);
-theDisplay.appendChild(maghribTime);
-theDisplay.appendChild(ishaTime);
+theDate.appendChild(dayDate);
+fcol.appendChild(fcard);
+dcol.appendChild(dcard);
+acol.appendChild(acard);
+mcol.appendChild(mcard);
+icol.appendChild(icard);
 
 //added event listener to submit button to run fetch function
 submitButton.addEventListener("click", function(event){
@@ -97,12 +141,18 @@ fetch(completeURL)
 
 function displayData (data) {
       console.log(data);
+
   dayDate.textContent = data.data.date.readable;
-  fajrTime.textContent = "Fajr: " + data.data.timings.Fajr + " EST";
-  dhuhrTime.textContent = "Dhuhr: " + data.data.timings.Dhuhr + " EST";
-  asrTime.textContent = "Asr: " + data.data.timings.Asr + " EST";
-  maghribTime.textContent = "Maghrib: " + data.data.timings.Maghrib + " EST";
-  ishaTime.textContent = "Isha: " + data.data.timings.Isha + " EST";
+  fheading.textContent = "Fajr";
+  dheading.textContent = "Dhuhr";
+  aheading.textContent = "Asr";
+  mheading.textContent = "Maghrib";
+  iheading.textContent = "Isha";
+  fajrTime.textContent = data.data.timings.Fajr + " EST";
+  dhuhrTime.textContent = data.data.timings.Dhuhr + " EST";
+  asrTime.textContent = data.data.timings.Asr + " EST";
+  maghribTime.textContent = data.data.timings.Maghrib + " EST";
+  ishaTime.textContent = data.data.timings.Isha + " EST";
 
 
 }
