@@ -36,24 +36,23 @@ var acard = document.createElement("div");
 var mcard = document.createElement("div");
 var icard = document.createElement("div");
 
-fheading.classList.add("card-header", "text-center", "p-3", "myHeading");
-dheading.classList.add("card-header", "text-center", "p-3", "myHeading");
-aheading.classList.add("card-header", "text-center", "p-3", "myHeading");
-mheading.classList.add("card-header", "text-center", "p-3", "myHeading");
-iheading.classList.add("card-header", "text-center", "p-3", "myHeading");
+fheading.classList.add("card-header", "text-center", "p-3", "myHeading", "fs-3");
+dheading.classList.add("card-header", "text-center", "p-3", "myHeading", "fs-3");
+aheading.classList.add("card-header", "text-center", "p-3", "myHeading", "fs-3");
+mheading.classList.add("card-header", "text-center", "p-3", "myHeading", "fs-3");
+iheading.classList.add("card-header", "text-center", "p-3", "myHeading", "fs-3");
 
-dayDate.classList.add("text-center", "fst-italic");
-fajrTime.classList.add("card-body");
-dhuhrTime.classList.add("card-body");
-asrTime.classList.add("card-body");
-maghribTime.classList.add("card-body");
-ishaTime.classList.add("card-body");
+fajrTime.classList.add("card-body", "fs-3");
+dhuhrTime.classList.add("card-body", "fs-3");
+asrTime.classList.add("card-body", "fs-3");
+maghribTime.classList.add("card-body", "fs-3");
+ishaTime.classList.add("card-body", "fs-3");
 
-fcard.classList.add("card", "text-center", "h-100");
-dcard.classList.add("card", "text-center", "h-100");
-acard.classList.add("card", "text-center", "h-100");
-mcard.classList.add("card", "text-center", "h-100");
-icard.classList.add("card", "text-center", "h-100");
+fcard.classList.add("card", "text-center", "h-100", "mainCard");
+dcard.classList.add("card", "text-center", "h-100", "mainCard");
+acard.classList.add("card", "text-center", "h-100", "mainCard");
+mcard.classList.add("card", "text-center", "h-100", "mainCard");
+icard.classList.add("card", "text-center", "h-100", "mainCard");
 
 fcard.appendChild(fheading);
 dcard.appendChild(dheading);

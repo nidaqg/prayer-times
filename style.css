@@ -1,11 +1,13 @@
 .myBtn {
-    background-color: black;
+    background-color:rgb(8, 63, 8);
     color: whitesmoke;
 }
 
 .myBtn:hover {
-    background-color: teal;
-    color: white;
+    background-color:rgb(139, 179, 139);
+    color:black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .myColors {
@@ -18,7 +20,18 @@
 
 .myHeading {
     background-color: rgb(21, 58, 21);
+    background-image: url(./images/card-header.png);
     color: white;
     font-family: 'RocknRoll One', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+
 }
+
+.mainCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 
