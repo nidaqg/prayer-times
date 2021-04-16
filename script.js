@@ -150,8 +150,7 @@ fetch(completeURL)
 //function to srt retrieved data to page
 function displayData (data) {
       console.log(data);
-
-  dayDate.textContent = `${data.data.date.readable} (${data.data.date.gregorian.weekday.en})`;
+  dayDate.textContent= currentDate;
   timeNow.textContent = now;
   fheading.textContent = "Fajr";
   dheading.textContent = "Dhuhr";
