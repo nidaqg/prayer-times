@@ -1,3 +1,4 @@
+//get all divs from html
 var cityInput = document.querySelector("#cityInput");
 var countryInput = document.querySelector("#countryInput");
 var theDisplay = document.querySelector("#timesDisplay");
@@ -11,12 +12,22 @@ var dcol = document.querySelector("#dhuhr");
 var acol = document.querySelector("#asr");
 var mcol = document.querySelector("#maghrib");
 var icol = document.querySelector("#isha");
-
-
 var submitButton = document.querySelector("#citySubmit");
+
+
+//Luxon datetime setup
+let DateTime = luxon.DateTime;
+
+let currentDate = DateTime.local().toLocaleString({ weekday: 'long', month: 'long', day: '2-digit'});
+let today = DateTime.local();
+let currentHr = today.get('hour');
+let now = today.toLocaleString(DateTime.TIME_SIMPLE);
+console.log(currentHr)
+console.log(now)
 
 //create the cards to hold the prayer times
 var dayDate = document.createElement("h4");
+var timeNow = document.createElement("h5");
 
 var fajrTime = document.createElement("div");
 var dhuhrTime = document.createElement("div");
@@ -68,6 +79,7 @@ icard.appendChild(ishaTime);
 
 
 theDate.appendChild(dayDate);
+theDate.appendChild(timeNow);
 fcol.appendChild(fcard);
 dcol.appendChild(dcard);
 acol.appendChild(acard);
@@ -117,9 +129,7 @@ var theCountry = "&country=" + countryName;
 var baseURL = "https://api.aladhan.com/v1/timingsByCity?";
 var completeURL = baseURL + theCity + theCountry;
   
-console.log(theCity);
-console.log(theCountry);
-
+//fetch function to retrieve data from URL
 fetch(completeURL)
   .then(response => {
     if (response.ok) {
@@ -132,26 +142,46 @@ fetch(completeURL)
       noData.classList.add("card", "m-4");
       noData.textContent = "Oh no, looks like there's no data for those search terms, please try again!"
       mainDisplay.append(noData);
-      return
+      return;
     }
   })
 };
 
-
+//function to srt retrieved data to page
 function displayData (data) {
       console.log(data);
 
-  dayDate.textContent = data.data.date.readable;
+  dayDate.textContent = `${data.data.date.readable} (${data.data.date.gregorian.weekday.en})`;
+  timeNow.textContent = now;
   fheading.textContent = "Fajr";
   dheading.textContent = "Dhuhr";
   aheading.textContent = "Asr";
   mheading.textContent = "Maghrib";
   iheading.textContent = "Isha";
-  fajrTime.textContent = data.data.timings.Fajr + " EST";
-  dhuhrTime.textContent = data.data.timings.Dhuhr + " EST";
-  asrTime.textContent = data.data.timings.Asr + " EST";
-  maghribTime.textContent = data.data.timings.Maghrib + " EST";
-  ishaTime.textContent = data.data.timings.Isha + " EST";
 
+  let timesArray = [];
+  //get times and check if past or future
+  let timeF = data.data.timings.Fajr;
+  let timeD = data.data.timings.Dhuhr;
+  let timeA = data.data.timings.Asr;
+  let timeM = data.data.timings.Maghrib;
+  let timeI = data.data.timings.Isha;
+
+  timesArray.push(timeF, timeD, timeA, timeM, timeI);
+
+  //convert times to 12 hour format, push to new array
+  newArray = []
+  timesArray.forEach(time => {
+    time = time.split(':');
+    let mTime = time[0] >= 12 && (time[0]-12 || 12) + ':' + time[1] + ' PM' || (Number(time[0]) || 12) + ':' + time[1] + ' AM';
+    newArray.push(mTime)
+  })
+  console.log(newArray);
+
+  fajrTime.textContent = `${newArray[0]}`;
+  dhuhrTime.textContent = `${newArray[1]}`;
+  asrTime.textContent = `${newArray[2]}`;
+  maghribTime.textContent = `${newArray[3]}`;
+  ishaTime.textContent = `${newArray[4]}`;
 
 }
