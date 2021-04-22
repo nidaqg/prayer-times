@@ -147,7 +147,7 @@ fetch(completeURL)
   })
 };
 
-//function to srt retrieved data to page
+//function to set retrieved data to page
 function displayData (data) {
       console.log(data);
   dayDate.textContent= currentDate;
