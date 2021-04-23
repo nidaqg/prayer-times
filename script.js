@@ -184,3 +184,5 @@ function displayData (data) {
   ishaTime.textContent = `${newArray[4]}`;
 
 }
+
+//window.addEventListener('onload', getTimes('New York', 'USA'));
